@@ -1,0 +1,24 @@
+
+// Execution Test Cases List
+export const getExecutionTestCases = () => {
+  const statuses = ['Passed', 'Failed', 'Skipped', 'Flaky'];
+  const types = ['Automation', 'Manual'];
+  const modules = ['Authentication', 'Checkout', 'Profile', 'Search', 'Payment'];
+  
+  const data = [];
+  for (let i = 1; i <= 50; i++) {
+    const status = statuses[Math.floor(Math.random() * statuses.length)];
+    const type = types[Math.floor(Math.random() * types.length)];
+    
+    data.push({
+      id: `TC-${1000 + i}`,
+      name: `${modules[i % modules.length]} - Test Functionality ${i}`,
+      module: modules[i % modules.length],
+      type: type,
+      status: status,
+      duration: type === 'Automation' ? `${(Math.random() * 5).toFixed(2)}s` : '-',
+      executedAt: new Date(Date.now() - Math.floor(Math.random() * 1000000000)).toISOString().split('T')[0]
+    });
+  }
+  return data;
+};
