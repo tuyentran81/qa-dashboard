@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 coverage
 
+# Backend
+server/.env
+server/node_modules
